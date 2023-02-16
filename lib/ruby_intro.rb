@@ -70,5 +70,22 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  #create attributes for isbn and price
+  attr_accessor :isbn, :price
+  
+  #create constructor that takes isbn and price
+  def initialize(isbn, price)
+    #if isbn or price dont work, error out
+    if isbn.empty? || price <= 0
+      raise ArgumentError, "ISBN cannot be empty and price must be greater than zero"
+    end
+    @isbn = isbn
+    @price = price
+  end
+  
+  #convert the price string to a price that is accurate
+  def price_as_string
+    sprintf("$%.2f", @price)
+  end
 end
+
