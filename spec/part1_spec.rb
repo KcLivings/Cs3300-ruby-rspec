@@ -3,15 +3,18 @@
 require_relative '../lib/ruby_intro'
 
 describe 'Ruby intro part 1' do
-  describe '#sum' do
-
-    it 'returns correct sum [1 point]', points: 1 do
-      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer
+  describe '#sum' do    #look for a method named sum
+    #if it returns the correct return given an array, then give a point
+    #it must pass all expects below for the it statement to work
+    it 'returns correct sum [1 point]', points: 1 do  
+      #the expect command tells it, like an if statement, if the return from the method is in the category given after the expect, then it passes the test and gives the correct msg above. If it fails, then a fail msg occurs.
+      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer 
       expect(sum([1, 2, 3, 4, 5])).to eq(15)
       expect(sum([1, 2, 3, 4, -5])).to eq(5)
       expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90)
     end
 
+    #test if the empty array returns 0
     it 'works on the empty array [2 points]', points: 2 do
       expect { sum([]) }.not_to raise_error
       expect(sum([])).to be_zero
