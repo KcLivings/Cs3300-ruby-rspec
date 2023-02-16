@@ -44,15 +44,27 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
-def starts_with_consonant? s
-  # YOUR CODE HERE
+def starts_with_consonant?(s)
+  # Check if the first character of the string is a letter
+  if s =~ /^[a-zA-Z]/
+    # Check if the first letter is a consonant (any letter other than A, E, I, O, U)
+    return s =~ /^[^aeiou]/i
+  else
+    return false
+  end
 end
 
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
+def binary_multiple_of_4?(s)
+  # Check if the string represents a valid binary number
+  if s =~ /^[01]+$/
+    # Convert the binary string to an integer and check if it is divisible by 4
+    return s.to_i(2) % 4 == 0
+  else
+    return false
+  end
 end
 
 # Part 3
